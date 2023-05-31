@@ -128,7 +128,6 @@ return {
   ["@nospell"] = { fg = theme.red },
   ["@number!"] = { fg = theme.red },
   ["@number"] = { fg = theme.red },
-  ["@parameter*"] = { fg = theme.red },
   ["@parameter.builtin"] = { fg = theme.red },
   ["@pfoerster"] = { fg = theme.red },
   ["@preproc"] = { fg = theme.red },
