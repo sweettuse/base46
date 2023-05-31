@@ -1,386 +1,177 @@
-local theme = require("base46").get_theme_tb "base_16"
-
-local all_symbols = {
-  "@GDScript",
-  "@GlobalScope",
-  "@Nullable",
-  "@_action",
-  "@_annotation",
-  "@_args",
-  "@_attr",
-  "@_cache",
-  "@_class",
-  "@_directive",
-  "@_expr",
-  "@_f",
-  "@_first",
-  "@_func",
-  "@_function",
-  "@_identifier",
-  "@_import",
-  "@_include",
-  "@_invoke",
-  "@_isinstance",
-  "@_keyword",
-  "@_keyword.function",
-  "@_lib",
-  "@_name",
-  "@_option",
-  "@_output",
-  "@_p",
-  "@_parent",
-  "@_role",
-  "@_scope",
-  "@_second",
-  "@_selector",
-  "@_sigil_name",
-  "@_tag",
-  "@_tag_name",
-  "@_transform",
-  "@_type",
-  "@_u",
-  "@attribute",
-  "@attribute.builtin",
-  "@base",
-  "@boolean",
-  "@character",
-  "@character.special",
-  "@comment",
-  "@comment.documentation",
-  "@conceal",
-  "@conditional",
-  "@conditional.ternary",
-  "@constant",
-  "@constant.boolean",
-  "@constant.builtin",
-  "@constant.macro",
-  "@constructor",
-  "@content",
-  "@debug",
-  "@define",
-  "@entry",
-  "@error",
-  "@exception",
-  "@field",
-  "@field.builtin",
-  "@float",
-  "@func-name",
-  "@function",
-  "@function.builtin",
-  "@function.call",
-  "@function.macro",
-  "@function.macro.builtin",
-  "@function.spec",
-  "@include",
-  "@interface",
-  "@keyword",
-  "@keyword.coroutine",
-  "@keyword.coroutine.return",
-  "@keyword.function",
-  "@keyword.operator",
-  "@keyword.phaser",
-  "@keyword.repeat",
-  "@keyword.return",
-  "@keyword.type",
-  "@label",
-  "@maxbrunsfeld",
-  "@method",
-  "@method.call",
-  "@module",
-  "@namespace",
-  "@namespace.builtin",
-  "@none",
-  "@nospell",
-  "@number",
-  "@number!",
-  "@operator",
-  "@parameter",
-  "@parameter*",
-  "@parameter.builtin",
-  "@pfoerster",
-  "@preproc",
-  "@property",
-  "@punctuation.bracket",
-  "@punctuation.delimiter",
-  "@punctuation.special",
-  "@repeat",
-  "@spell",
-  "@storageclass",
-  "@storageclass.lifetime",
-  "@string",
-  "@string.documentation",
-  "@string.escape",
-  "@string.grammar",
-  "@string.regex",
-  "@string.special",
-  "@string.special.grammar",
-  "@string.special.path",
-  "@stumash",
-  "@symbol",
-  "@tag",
-  "@tag.attribute",
-  "@tag.builtin",
-  "@tag.delimiter",
-  "@text",
-  "@text.danger",
-  "@text.diff.add",
-  "@text.diff.delete",
-  "@text.emphasis",
-  "@text.environment",
-  "@text.environment.name",
-  "@text.literal",
-  "@text.math",
-  "@text.note",
-  "@text.quote",
-  "@text.reference",
-  "@text.strike",
-  "@text.strong",
-  "@text.title",
-  "@text.title.1",
-  "@text.title.1.marker",
-  "@text.title.2",
-  "@text.title.2.marker",
-  "@text.title.3",
-  "@text.title.3.marker",
-  "@text.title.4",
-  "@text.title.4.marker",
-  "@text.title.5",
-  "@text.title.5.marker",
-  "@text.title.6",
-  "@text.title.6.marker",
-  "@text.todo",
-  "@text.todo.checked",
-  "@text.todo.unchecked",
-  "@text.underline",
-  "@text.uri",
-  "@text.warning",
-  "@type",
-  "@type.builtin",
-  "@type.definition",
-  "@type.qualifier",
-  "@variable",
-  "@variable.builtin",
-  "@variable.global",
-  "@variable.local",
-}
+local merge_tb = require("base46").merge_tb
+local b16 = require("base46").get_theme_tb "base_16"
+local b30 = require("base46").get_theme_tb "base_30"
+local theme = merge_tb(b16, b30)
 
 return {
   -- `@annotation` is not one of the default capture group, should we keep it
-  ["@annotation"] = {
-    fg = theme.base0F,
-  },
+  -- ORIGINAL
+  ["@annotation"] = { fg = theme.base0F },
+  ["@attribute"] = { fg = theme.base0A },
+  ["@character"] = { fg = theme.base08 },
+  ["@conditional"] = { link = "Conditional" },
+  ["@constant"] = { fg = theme.base08 },
+  ["@constant.builtin"] = { fg = theme.base09 },
+  ["@constant.macro"] = { fg = theme.base08 },
+  ["@constructor"] = { fg = theme.base0C },
+  ["@definition"] = { sp = theme.base04, underline = true },
+  ["@error"] = { fg = theme.base08 },
+  ["@exception"] = { fg = theme.base08 },
+  ["@field"] = { fg = theme.base08 },
+  ["@field.key"] = { fg = theme.base08 },
+  ["@float"] = { fg = theme.base09 },
+  ["@function"] = { fg = theme.base0D },
+  ["@function.builtin"] = { fg = theme.base0D },
+  ["@function.call"] = { fg = theme.base0D },
+  ["@function.macro"] = { fg = theme.base08 },
+  ["@include"] = { link = "Include" },
+  ["@keyword"] = { fg = theme.base0E },
+  ["@keyword.function"] = { fg = theme.base0E },
+  ["@keyword.operator"] = { fg = theme.base0E },
+  ["@keyword.return"] = { fg = theme.base0E },
+  ["@method"] = { fg = theme.base0D },
+  ["@method.call"] = { fg = theme.base0D },
+  ["@namespace"] = { fg = theme.base08 },
+  ["@none"] = { fg = theme.base05 },
+  ["@operator"] = { fg = theme.base05 },
+  ["@parameter"] = { fg = theme.base08 },
+  ["@property"] = { fg = theme.base08 },
+  ["@punctuation.bracket"] = { fg = theme.base0F },
+  ["@punctuation.delimiter"] = { fg = theme.base0F },
+  ["@punctuation.special"] = { fg = theme.base08 },
+  ["@reference"] = { fg = theme.base05 },
+  ["@scope"] = { bold = true },
+  ["@string"] = { fg = theme.base0B },
+  ["@string.escape"] = { fg = theme.base0C },
+  ["@string.regex"] = { fg = theme.base0C },
+  ["@string.special"] = { fg = theme.base0C },
+  ["@symbol"] = { fg = theme.base0B },
+  ["@tag"] = { link = "Tag" },
+  ["@tag.attribute"] = { link = "@property" },
+  ["@tag.delimiter"] = { fg = theme.base0F },
+  ["@text"] = { fg = theme.base05 },
+  ["@text.emphasis"] = { fg = theme.base09 },
+  ["@text.literal"] = { fg = theme.base09 },
+  ["@text.strike"] = { fg = theme.base0F, strikethrough = true },
+  ["@text.strong"] = { bold = true },
+  ["@text.uri"] = { fg = theme.base09, underline = true },
+  ["@type.builtin"] = { fg = theme.base0A },
+  ["@variable"] = { fg = theme.base05 },
+  ["@variable.builtin"] = { fg = theme.base09 },
 
-  ["@attribute"] = {
-    fg = theme.base0A,
-  },
-
-  ["@character"] = {
-    fg = theme.base08,
-  },
-
-  ["@constructor"] = {
-    fg = theme.base0C,
-  },
-
-  ["@constant"] = {
-    fg = theme.base08,
-  },
-
-  ["@constant.builtin"] = {
-    fg = theme.base09,
-  },
-
-  ["@constant.macro"] = {
-    fg = theme.base08,
-  },
-
-  ["@error"] = {
-    fg = theme.base08,
-  },
-
-  ["@exception"] = {
-    fg = theme.base08,
-  },
-
-  ["@float"] = {
-    fg = theme.base09,
-  },
-
-  ["@keyword"] = {
-    fg = theme.base0E,
-  },
-
-  ["@keyword.function"] = {
-    fg = theme.base0E,
-  },
-
-  ["@keyword.return"] = {
-    fg = theme.base0E,
-  },
-
-  ["@function"] = {
-    fg = theme.base0D,
-  },
-
-  ["@function.builtin"] = {
-    fg = theme.base0D,
-  },
-
-  ["@function.macro"] = {
-    fg = theme.base08,
-  },
-
-  ["@function.call"] = {
-    fg = theme.base0D,
-  },
-
-  ["@operator"] = {
-    fg = theme.base05,
-  },
-
-  ["@keyword.operator"] = {
-    fg = theme.base0E,
-  },
-
-  ["@method"] = {
-    fg = theme.base0D,
-  },
-
-  ["@method.call"] = {
-    fg = theme.base0D,
-  },
-
-  ["@namespace"] = {
-    fg = theme.base08,
-  },
-
-  ["@none"] = {
-    fg = theme.base05,
-  },
-
-  ["@parameter"] = {
-    fg = theme.base08,
-  },
-
-  ["@reference"] = {
-    fg = theme.base05,
-  },
-
-  ["@punctuation.bracket"] = {
-    fg = theme.base0F,
-  },
-
-  ["@punctuation.delimiter"] = {
-    fg = theme.base0F,
-  },
-
-  ["@punctuation.special"] = {
-    fg = theme.base08,
-  },
-
-  ["@string"] = {
-    fg = theme.base0B,
-  },
-
-  ["@string.regex"] = {
-    fg = theme.base0C,
-  },
-
-  ["@string.escape"] = {
-    fg = theme.base0C,
-  },
-
-  ["@string.special"] = {
-    fg = theme.base0C,
-  },
-
-  ["@symbol"] = {
-    fg = theme.base0B,
-  },
-
-  ["@tag"] = {
-    link = "Tag",
-  },
-
-  ["@tag.attribute"] = {
-    link = "@property",
-  },
-
-  ["@tag.delimiter"] = {
-    fg = theme.base0F,
-  },
-
-  ["@text"] = {
-    fg = theme.base05,
-  },
-
-  ["@text.strong"] = {
-    bold = true,
-  },
-
-  ["@text.emphasis"] = {
-    fg = theme.base09,
-  },
-
-  ["@text.strike"] = {
-    fg = theme.base0F,
-    strikethrough = true,
-  },
-
-  ["@text.literal"] = {
-    fg = theme.base09,
-  },
-
-  ["@text.uri"] = {
-    fg = theme.base09,
-    underline = true,
-  },
-
-  ["@type.builtin"] = {
-    fg = theme.base0A,
-  },
-
-  ["@variable"] = {
-    fg = theme.base05,
-  },
-
-  ["@variable.builtin"] = {
-    fg = theme.base09,
-  },
-
-  -- variable.global
-
-  ["@definition"] = {
-    sp = theme.base04,
-    underline = true,
-  },
-
-  -- TSDefinitionUsage = {
-  --   sp = theme.base04,
-  --   underline = true,
-  -- },
-
-  ["@scope"] = {
-    bold = true,
-  },
-
-  ["@field"] = {
-    fg = theme.base08,
-  },
-
-  ["@field.key"] = {
-    fg = theme.base08,
-  },
-
-  ["@property"] = {
-    fg = theme.base08,
-  },
-
-  ["@include"] = {
-    link = "Include",
-  },
-
-  ["@conditional"] = {
-    link = "Conditional",
-  },
+  -- NEW MAPPINGS
+  ["@GDScript"] = { fg = theme.red },
+  ["@GlobalScope"] = { fg = theme.red },
+  ["@Nullable"] = { fg = theme.red },
+  ["@_action"] = { fg = theme.red },
+  ["@_annotation"] = { fg = theme.red },
+  ["@_args"] = { fg = theme.red },
+  ["@_attr"] = { fg = theme.red },
+  ["@_cache"] = { fg = theme.red },
+  ["@_class"] = { fg = theme.red },
+  ["@_directive"] = { fg = theme.red },
+  ["@_expr"] = { fg = theme.red },
+  ["@_f"] = { fg = theme.red },
+  ["@_first"] = { fg = theme.red },
+  ["@_func"] = { fg = theme.red },
+  ["@_function"] = { fg = theme.red },
+  ["@_identifier"] = { fg = theme.red },
+  ["@_import"] = { fg = theme.red },
+  ["@_include"] = { fg = theme.red },
+  ["@_invoke"] = { fg = theme.red },
+  ["@_isinstance"] = { fg = theme.red },
+  ["@_keyword"] = { fg = theme.red },
+  ["@_keyword.function"] = { fg = theme.red },
+  ["@_lib"] = { fg = theme.red },
+  ["@_name"] = { fg = theme.red },
+  ["@_option"] = { fg = theme.red },
+  ["@_output"] = { fg = theme.red },
+  ["@_p"] = { fg = theme.red },
+  ["@_parent"] = { fg = theme.red },
+  ["@_role"] = { fg = theme.red },
+  ["@_scope"] = { fg = theme.red },
+  ["@_second"] = { fg = theme.red },
+  ["@_selector"] = { fg = theme.red },
+  ["@_sigil_name"] = { fg = theme.red },
+  ["@_tag"] = { fg = theme.red },
+  ["@_tag_name"] = { fg = theme.red },
+  ["@_transform"] = { fg = theme.red },
+  ["@_type"] = { fg = theme.red },
+  ["@_u"] = { fg = theme.red },
+  ["@attribute.builtin"] = { fg = theme.red },
+  ["@base"] = { fg = theme.red },
+  ["@boolean"] = { fg = theme.red },
+  ["@character.special"] = { fg = theme.red },
+  ["@comment"] = { fg = theme.red },
+  ["@comment.documentation"] = { fg = theme.red },
+  ["@conceal"] = { fg = theme.red },
+  ["@conditional.ternary"] = { fg = theme.red },
+  ["@constant.boolean"] = { fg = theme.red },
+  ["@content"] = { fg = theme.red },
+  ["@debug"] = { fg = theme.red },
+  ["@define"] = { fg = theme.red },
+  ["@entry"] = { fg = theme.red },
+  ["@field.builtin"] = { fg = theme.red },
+  ["@func-name"] = { fg = theme.red },
+  ["@function.macro.builtin"] = { fg = theme.red },
+  ["@function.spec"] = { fg = theme.red },
+  ["@interface"] = { fg = theme.red },
+  ["@keyword.coroutine"] = { fg = theme.red },
+  ["@keyword.coroutine.return"] = { fg = theme.red },
+  ["@keyword.phaser"] = { fg = theme.red },
+  ["@keyword.repeat"] = { fg = theme.red },
+  ["@keyword.type"] = { fg = theme.red },
+  ["@label"] = { fg = theme.red },
+  ["@maxbrunsfeld"] = { fg = theme.red },
+  ["@module"] = { fg = theme.red },
+  ["@namespace.builtin"] = { fg = theme.red },
+  ["@nospell"] = { fg = theme.red },
+  ["@number!"] = { fg = theme.red },
+  ["@number"] = { fg = theme.red },
+  ["@parameter*"] = { fg = theme.red },
+  ["@parameter.builtin"] = { fg = theme.red },
+  ["@pfoerster"] = { fg = theme.red },
+  ["@preproc"] = { fg = theme.red },
+  ["@repeat"] = { fg = theme.red },
+  ["@spell"] = { fg = theme.red },
+  ["@storageclass"] = { fg = theme.red },
+  ["@storageclass.lifetime"] = { fg = theme.red },
+  ["@string.documentation"] = { fg = theme.red },
+  ["@string.grammar"] = { fg = theme.red },
+  ["@string.special.grammar"] = { fg = theme.red },
+  ["@string.special.path"] = { fg = theme.red },
+  ["@stumash"] = { fg = theme.red },
+  ["@tag.builtin"] = { fg = theme.red },
+  ["@text.danger"] = { fg = theme.red },
+  ["@text.diff.add"] = { fg = theme.red },
+  ["@text.diff.delete"] = { fg = theme.red },
+  ["@text.environment"] = { fg = theme.red },
+  ["@text.environment.name"] = { fg = theme.red },
+  ["@text.math"] = { fg = theme.red },
+  ["@text.note"] = { fg = theme.red },
+  ["@text.quote"] = { fg = theme.red },
+  ["@text.reference"] = { fg = theme.red },
+  ["@text.title"] = { fg = theme.red },
+  ["@text.title.1"] = { fg = theme.red },
+  ["@text.title.1.marker"] = { fg = theme.red },
+  ["@text.title.2"] = { fg = theme.red },
+  ["@text.title.2.marker"] = { fg = theme.red },
+  ["@text.title.3"] = { fg = theme.red },
+  ["@text.title.3.marker"] = { fg = theme.red },
+  ["@text.title.4"] = { fg = theme.red },
+  ["@text.title.4.marker"] = { fg = theme.red },
+  ["@text.title.5"] = { fg = theme.red },
+  ["@text.title.5.marker"] = { fg = theme.red },
+  ["@text.title.6"] = { fg = theme.red },
+  ["@text.title.6.marker"] = { fg = theme.red },
+  ["@text.todo"] = { fg = theme.red },
+  ["@text.todo.checked"] = { fg = theme.red },
+  ["@text.todo.unchecked"] = { fg = theme.red },
+  ["@text.underline"] = { fg = theme.red },
+  ["@text.warning"] = { fg = theme.red },
+  ["@type"] = { fg = theme.red },
+  ["@type.definition"] = { fg = theme.red },
+  ["@type.qualifier"] = { fg = theme.red },
+  ["@variable.global"] = { fg = theme.red },
+  ["@variable.local"] = { fg = theme.red },
 }
